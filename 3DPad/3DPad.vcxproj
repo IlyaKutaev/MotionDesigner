@@ -1,0 +1,746 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B12702AD-ABFB-343A-A199-8E24837244A3}</ProjectGuid>
+    <Keyword>Qt4VSv1.0</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <ProjectName>MotionDesigner</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup Condition="'$(QtMsBuild)'=='' or !Exists('$(QtMsBuild)\qt.targets')">
+    <QtMsBuild>$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
+    <Import Project="$(QtMsBuild)\qt.props" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore\;A:\3DPad\math\GeometricTools\GTEngine\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;C:\Program Files (x86)\Windows Kits\10\Lib\10.0.17763.0\um\x64\;A:\3DPad\3DPad\Lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>qtmaind.lib;Qt5Cored.lib;Qt5Guid.lib;Qt5Widgetsd.lib;d3d11.lib;dxgi.lib;GTEngine.v15.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <QtMoc>
+      <OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <IncludePath>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore\;A:\3DPad\math\GeometricTools\GTEngine\Include;%(AdditionalIncludeDirectories)</IncludePath>
+      <Define>UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</Define>
+      <ForceInclude>stdafx.h;../../%(Filename)%(Extension)</ForceInclude>
+    </QtMoc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\ui_%(Filename).h</OutputFile>
+    </QtUic>
+    <QtRcc>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\qrc_%(Filename).cpp</OutputFile>
+    </QtRcc>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;A:\3DPad\math\GeometricTools\GTEngine\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat />
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)$(TargetName).pch</PrecompiledHeaderOutputFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalDependencies>qtmain.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Widgets.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <QtMoc>
+      <OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <IncludePath>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;A:\3DPad\math\GeometricTools\GTEngine\Include;%(AdditionalIncludeDirectories)</IncludePath>
+      <Define>UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;%(PreprocessorDefinitions)</Define>
+      <ForceInclude>stdafx.h;../../%(Filename)%(Extension)</ForceInclude>
+    </QtMoc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\ui_%(Filename).h</OutputFile>
+    </QtUic>
+    <QtRcc>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\qrc_%(Filename).cpp</OutputFile>
+    </QtRcc>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Archive.cpp" />
+    <ClCompile Include="Area.cpp" />
+    <ClCompile Include="AutoBack.cpp" />
+    <ClCompile Include="Barycentric.cpp" />
+    <ClCompile Include="Blinn.cpp" />
+    <ClCompile Include="Blur.cpp" />
+    <ClCompile Include="Box.cpp" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Checker.cpp" />
+    <ClCompile Include="ClearSelection.cpp" />
+    <ClCompile Include="ColorBalance.cpp" />
+    <ClCompile Include="Compare.cpp" />
+    <ClCompile Include="Constrast.cpp" />
+    <ClCompile Include="CustomAttribute.cpp" />
+    <ClCompile Include="Cylinder.cpp" />
+    <ClCompile Include="Delete.cpp" />
+    <ClCompile Include="DirectLight.cpp" />
+    <ClCompile Include="Displace.cpp" />
+    <ClCompile Include="DisplayLayer.cpp" />
+    <ClCompile Include="Distance.cpp" />
+    <ClCompile Include="EdgeHardness.cpp" />
+    <ClCompile Include="Equation.cpp" />
+    <ClCompile Include="Exposure.cpp" />
+    <ClCompile Include="FBX.cpp" />
+    <ClCompile Include="FishEye.cpp" />
+    <ClCompile Include="FreeMemory.cpp" />
+    <ClCompile Include="GammaCorrect.cpp" />
+    <ClCompile Include="Gradient.cpp" />
+    <ClCompile Include="Grayscale.cpp" />
+    <ClCompile Include="HighPass.cpp" />
+    <ClCompile Include="Hotkeys.cpp" />
+    <ClCompile Include="HSV.cpp" />
+    <ClCompile Include="ImageBlend.cpp" />
+    <ClCompile Include="ImageConstant.cpp" />
+    <ClCompile Include="ImageHDR.cpp" />
+    <ClCompile Include="ImageProxy.cpp" />
+    <ClCompile Include="ImageResize.cpp" />
+    <ClCompile Include="ImageRotate.cpp" />
+    <ClCompile Include="ImageSave.cpp" />
+    <ClCompile Include="ImageShape.cpp" />
+    <ClCompile Include="ImageWrap.cpp" />
+    <ClCompile Include="Interpolate.cpp" />
+    <ClCompile Include="IPolyCombiner.cpp" />
+    <ClCompile Include="Lambert.cpp" />
+    <ClCompile Include="LensBlur.cpp" />
+    <ClCompile Include="Levels.cpp" />
+    <ClCompile Include="Line.cpp" />
+    <ClCompile Include="LookUpTable.cpp" />
+    <ClCompile Include="Material.cpp" />
+    <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="Median.cpp" />
+    <ClCompile Include="MeshGeometryManager.cpp" />
+    <ClCompile Include="MeshManager.cpp" />
+    <ClCompile Include="MeshPtr.cpp" />
+    <ClCompile Include="MotionBlur.cpp" />
+    <ClCompile Include="MotionPath.cpp" />
+    <ClCompile Include="NamedConstant.cpp" />
+    <ClCompile Include="NativeFormat.cpp" />
+    <ClCompile Include="NormalMap.cpp" />
+    <ClCompile Include="Object.cpp" />
+    <ClCompile Include="CheckDisk.cpp" />
+    <ClCompile Include="OpSmooth.cpp" />
+    <ClCompile Include="OpSpin.cpp" />
+    <ClCompile Include="Patch_Divide_Parallel.cpp" />
+    <ClCompile Include="Plane.cpp" />
+    <ClCompile Include="PointLight.cpp" />
+    <ClCompile Include="MainForm.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Measure.cpp" />
+    <ClCompile Include="Noise.cpp" />
+    <ClCompile Include="Outline.cpp" />
+    <ClCompile Include="Pivot.cpp" />
+    <ClCompile Include="PolyCombiner_Patch.cpp" />
+    <ClCompile Include="Position.cpp" />
+    <ClCompile Include="PositionGizmo.cpp" />
+    <ClCompile Include="Preferences.cpp" />
+    <ClCompile Include="RadialBlur.cpp" />
+    <ClCompile Include="Random.cpp" />
+    <ClCompile Include="Range.cpp" />
+    <ClCompile Include="Range3D.cpp" />
+    <ClCompile Include="RaycastManager.cpp" />
+    <ClCompile Include="Rect.cpp" />
+    <ClCompile Include="RedshiftPassEquation.cpp" />
+    <ClCompile Include="Remap.cpp" />
+    <ClCompile Include="Renamer.cpp" />
+    <ClCompile Include="ResetTransform.cpp" />
+    <ClCompile Include="RotationGizmo.cpp" />
+    <ClCompile Include="ScaleGizmo.cpp" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="SelectionGrow.cpp" />
+    <ClCompile Include="SelectSymmetry.cpp" />
+    <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="Polygon.cpp" />
+    <ClCompile Include="SharedNodeProperties.cpp" />
+    <ClCompile Include="SoftSelect.cpp" />
+    <ClCompile Include="Spin.cpp" />
+    <ClCompile Include="Spline.cpp" />
+    <ClCompile Include="SpotLight.cpp" />
+    <ClCompile Include="Squash.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Symmetry.cpp" />
+    <ClCompile Include="Table.cpp" />
+    <ClCompile Include="TableSave.cpp" />
+    <ClCompile Include="TempWidget.cpp" />
+    <ClCompile Include="Text.cpp" />
+    <ClCompile Include="Text2D.cpp" />
+    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TextureHDR.cpp" />
+    <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="ToneMapping.cpp" />
+    <ClCompile Include="Triangulate.cpp" />
+    <ClCompile Include="Triangulator.cpp" />
+    <ClCompile Include="Tweak.cpp" />
+    <ClCompile Include="Twist.cpp" />
+    <ClCompile Include="UndoManager.cpp" />
+    <ClCompile Include="UnsharpMask.cpp" />
+    <ClCompile Include="UVQuad.cpp" />
+    <ClCompile Include="UVWarp.cpp" />
+    <ClCompile Include="ViewGrid.cpp" />
+    <ClCompile Include="Viewport.cpp" />
+    <ClCompile Include="ViewportText.cpp" />
+    <ClCompile Include="ViewSnap.cpp" />
+    <ClCompile Include="VolumeSelect.cpp" />
+    <ClCompile Include="Export.cpp" />
+    <ClCompile Include="Wavefront.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="Measure.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="EdgeHardness.h" />
+    <QtMoc Include="Material.h" />
+    <QtMoc Include="Gradient.h" />
+    <QtMoc Include="Camera.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="AutoBack.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Checker.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Lambert.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Blinn.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="FBX.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Delete.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Hotkeys.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Line.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Box.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Displace.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="DirectLight.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="DisplayLayer.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="ClearSelection.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Area.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Barycentric.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Blur.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="ColorBalance.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Compare.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Constrast.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Archive.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="CustomAttribute.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Mesh.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Exposure.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="FishEye.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="HighPass.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="HSV.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="ImageBlend.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="ImageConstant.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="ImageHDR.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="ImageResize.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="ImageRotate.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="ImageSave.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Interpolate.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="LookUpTable.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Matrix.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Median.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="ImageShape.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Distance.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="GammaCorrect.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Grayscale.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Levels.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="ImageWrap.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="ImageProxy.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="LensBlur.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Cylinder.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+    </QtMoc>
+    <ClInclude Include="Equation.h" />
+    <ClInclude Include="FreeMemory.h" />
+    <ClInclude Include="IPolyCombiner.h" />
+    <ClInclude Include="MeshChannel.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+    </ClInclude>
+    <QtMoc Include="Transform.h" />
+    <QtMoc Include="Viewport.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Twist.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Squash.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Tweak.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Noise.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Spin.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Triangulate.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Pivot.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="ResetTransform.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Symmetry.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Outline.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="SoftSelect.h" />
+    <QtMoc Include="SelectSymmetry.h" />
+    <QtMoc Include="Texture.h" />
+    <QtMoc Include="Position.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Polygon.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="ViewGrid.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="SceneManager.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="MeshManager.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="TextureManager.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Preferences.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="ViewSnap.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="PositionGizmo.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="RotationGizmo.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="ScaleGizmo.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="RaycastManager.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Shader.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Object.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="NativeFormat.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Random.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Rect.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Text.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Spline.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Plane.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="VolumeSelect.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="UndoManager.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="PointLight.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="SpotLight.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="SelectionGrow.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="ViewportText.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="TextureHDR.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="NormalMap.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="SharedNodeProperties.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Scene.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11</IncludePath>
+    </QtMoc>
+    <QtMoc Include="TempWidget.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="ToneMapping.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="MotionBlur.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="RadialBlur.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Table.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="TableSave.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Text2D.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="UVQuad.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="UVWarp.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="MotionPath.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Remap.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="RedshiftPassEquation.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="UnsharpMask.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Renamer.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;.\Runtime\Math\Utilities;.\Runtime\Allocator;.\Runtime\Misc\Utilities;.\Runtime\Utilities;.\Runtime\GfxDevice\d3d11;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um</IncludePath>
+    </QtMoc>
+    <QtMoc Include="NamedConstant.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;.\Runtime\Math\Utilities;.\Runtime\Misc\Utilities;.\Runtime\Utilities;C:\Program Files (x86)\Windows Kits\10\Include\10.0.17763.0\um;.\Runtime\GfxDevice\d3d11</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Triangulator.h" />
+    <ClInclude Include="MeshGeometryManager.h" />
+    <QtMoc Include="OpSpin.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+    </QtMoc>
+    <QtMoc Include="OpSmooth.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+    </QtMoc>
+    <QtMoc Include="MeshPtr.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+    </QtMoc>
+    <QtMoc Include="CheckDisk.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+    </QtMoc>
+    <ClInclude Include="Pad_Numeric.h" />
+    <ClInclude Include="Patch_Divide_Parallel.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+    </ClInclude>
+    <ClInclude Include="PolyCombiner_Patch.h" />
+    <ClInclude Include="Range.h" />
+    <QtMoc Include="Range3D.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+    </QtMoc>
+    <ClInclude Include="VertexType.h" />
+    <QtMoc Include="Export.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Wavefront.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+    </QtMoc>
+    <ClInclude Include="_3DPad_Common.h" />
+    <QtMoc Include="MainForm.h" />
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="DPad.ui" />
+    <QtUic Include="TempWidget.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="DPad.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="3DPad.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties MocDir=".\GeneratedFiles\$(ConfigurationName)" UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" lupdateOptions="" lupdateOnBuild="0" lreleaseOptions="" Qt5Version_x0020_x64="msvc2017_64" MocOptions="" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

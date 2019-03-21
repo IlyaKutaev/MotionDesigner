@@ -1,0 +1,9 @@
+.vs/
+.vscode/
+math/
+x64/
+3DPad/GeneratedFiles/
+*.pdb
+*.lib
+*.pch
+*.png

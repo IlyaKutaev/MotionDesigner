@@ -1,0 +1,832 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Header Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="MainForm.cpp">
+      <Filter>Header Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Header Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="Viewport.cpp">
+      <Filter>Header Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="Twist.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Squash.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Tweak.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Noise.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Spin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangulate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Measure.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Pivot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ResetTransform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Symmetry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Outline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SoftSelect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectSymmetry.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EdgeHardness.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Material.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Gradient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Position.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewGrid.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Preferences.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoBack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Checker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Lambert.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Blinn.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewSnap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PositionGizmo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RotationGizmo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ScaleGizmo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RaycastManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FBX.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NativeFormat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Delete.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Hotkeys.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Random.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Line.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Rect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Text.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Spline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Box.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Plane.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Displace.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VolumeSelect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UndoManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PointLight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectLight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SpotLight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DisplayLayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectionGrow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ClearSelection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewportText.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureHDR.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NormalMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SharedNodeProperties.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TempWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Area.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Barycentric.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Blur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorBalance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ToneMapping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Compare.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Exposure.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FishEye.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HighPass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HSV.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageBlend.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageConstant.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageHDR.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageResize.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageRotate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageSave.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Interpolate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LookUpTable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Median.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MotionBlur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RadialBlur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageShape.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Table.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TableSave.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Text2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UVQuad.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UVWarp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Distance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Constrast.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GammaCorrect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MotionPath.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Archive.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Remap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RedshiftPassEquation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Grayscale.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Levels.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageWrap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UnsharpMask.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Renamer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageProxy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomAttribute.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LensBlur.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NamedConstant.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Polygon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangulator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Patch_Divide_Parallel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Range.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IPolyCombiner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PolyCombiner_Patch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshGeometryManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Equation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Export.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FreeMemory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OpSpin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cylinder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OpSmooth.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Range3D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Wavefront.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshPtr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckDisk.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+      <ParseFiles>true</ParseFiles>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>true</ParseFiles>
+    </Filter>
+    <Filter Include="Header Files\core">
+      <UniqueIdentifier>{6c735d74-23a9-46fa-a026-5f7a15d7d134}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+      <ParseFiles>true</ParseFiles>
+    </Filter>
+    <Filter Include="Header Files\Implementation">
+      <UniqueIdentifier>{5887ab7b-f7c5-404c-8f41-a80a079169b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Finished">
+      <UniqueIdentifier>{b7855268-dae7-494c-8c83-fa44b53821e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Patches">
+      <UniqueIdentifier>{5bd6d15b-5054-44db-b1a8-3e3c5db51cea}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="_3DPad_Common.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshChannel.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="VertexType.h">
+      <Filter>Header Files\Finished</Filter>
+    </ClInclude>
+    <ClInclude Include="Pad_Numeric.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Range.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Patch_Divide_Parallel.h">
+      <Filter>Header Files\Patches</Filter>
+    </ClInclude>
+    <ClInclude Include="IPolyCombiner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PolyCombiner_Patch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshGeometryManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Equation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FreeMemory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="DPad.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="TempWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="DPad.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="MainForm.h">
+      <Filter>Header Files\core</Filter>
+    </QtMoc>
+    <QtMoc Include="Transform.h">
+      <Filter>Header Files\core</Filter>
+    </QtMoc>
+    <QtMoc Include="Viewport.h">
+      <Filter>Header Files\core</Filter>
+    </QtMoc>
+    <QtMoc Include="Twist.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Squash.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Tweak.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Noise.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Spin.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Triangulate.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Measure.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Pivot.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ResetTransform.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Symmetry.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Outline.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="SoftSelect.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="SelectSymmetry.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="EdgeHardness.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Material.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Texture.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Gradient.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Position.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ViewGrid.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Camera.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="SceneManager.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="MeshManager.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="TextureManager.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Preferences.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="AutoBack.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Checker.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Lambert.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Blinn.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ViewSnap.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="PositionGizmo.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="RotationGizmo.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ScaleGizmo.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="RaycastManager.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Shader.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FBX.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Object.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="NativeFormat.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Delete.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Hotkeys.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Random.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Line.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Rect.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Text.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Spline.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Plane.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Displace.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="VolumeSelect.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="UndoManager.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="PointLight.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="DirectLight.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="SpotLight.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="DisplayLayer.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="SelectionGrow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ClearSelection.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ViewportText.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="TextureHDR.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="NormalMap.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="SharedNodeProperties.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Mesh.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Scene.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="TempWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Area.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Barycentric.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Blur.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ColorBalance.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ToneMapping.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Compare.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Exposure.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="FishEye.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="HighPass.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="HSV.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ImageBlend.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ImageConstant.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ImageHDR.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ImageResize.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ImageRotate.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ImageSave.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Interpolate.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="LookUpTable.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Matrix.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Median.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="MotionBlur.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="RadialBlur.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ImageShape.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Table.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="TableSave.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Text2D.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="UVQuad.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="UVWarp.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Distance.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Box.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Constrast.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="GammaCorrect.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="MotionPath.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Archive.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Remap.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="RedshiftPassEquation.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Grayscale.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Levels.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ImageWrap.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="UnsharpMask.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Renamer.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ImageProxy.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="CustomAttribute.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="LensBlur.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="NamedConstant.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Polygon.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Triangulator.h">
+      <Filter>Header Files\Finished</Filter>
+    </QtMoc>
+    <QtMoc Include="Export.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="OpSpin.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Cylinder.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="OpSmooth.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Range3D.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Wavefront.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="MeshPtr.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="CheckDisk.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="3DPad.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
