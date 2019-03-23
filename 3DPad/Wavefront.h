@@ -17,4 +17,5 @@ public:
 	void Export(QString filename, MeshPtr *mesh);
 private:
 	QString text(QVector3D vector);
+	QString text2(QVector3D vector);
 };

@@ -120,13 +120,13 @@ void Patch_Divide_Parallel<PolyCombiner>::Create(pad_int divisions_count)
 	position1->SetStart(anchor1);
 	position1->SetFinish(anchor3);
 
-	auto uv0 = make_unique<Range3D>();
-	auto uv1 = make_unique<Range3D>();
+	auto range_uv0 = make_unique<Range3D>();
+	auto range_uv1 = make_unique<Range3D>();
 
-	uv0->SetStart(anchorUV0);
-	uv0->SetFinish(anchorUV2);
-	uv1->SetStart(anchorUV1);
-	uv1->SetFinish(anchorUV3);
+	range_uv0->SetStart(anchorUV0);
+	range_uv0->SetFinish(anchorUV2);
+	range_uv1->SetStart(anchorUV1);
+	range_uv1->SetFinish(anchorUV3);
 
 	int id = 0;
 
@@ -142,6 +142,9 @@ void Patch_Divide_Parallel<PolyCombiner>::Create(pad_int divisions_count)
 	QVector3D opt_vec = position0->Interpolate(i1);
 	QVector3D opt_vec1 = position1->Interpolate(i1);
 
+	QVector3D uv_vec = range_uv0->Interpolate(i1);
+	QVector3D uv_vec1 = range_uv1->Interpolate(i1);
+
 	Face4<pad_int> face;
 
 	normal_def_level_0 = QVector3D::crossProduct((anchor1 - anchor0).normalized(), (anchor2 - anchor0).normalized()).normalized();
@@ -150,48 +153,61 @@ void Patch_Divide_Parallel<PolyCombiner>::Create(pad_int divisions_count)
 
 	vertex_child_id = 0;
 
-	int index0 = poly_combiner->SetVertexPosition(vertex_parent_id, vertex_child_id, opt_vec);
-	int index2 = poly_combiner->SetVertexNormal(vertex_parent_id, vertex_child_id, normal_def_level_1);
+	int pos_index0 = poly_combiner->SetVertexPosition(vertex_parent_id, vertex_child_id, opt_vec);
+	int norm_index1 = poly_combiner->SetVertexNormal(vertex_parent_id, vertex_child_id, normal_def_level_1);
+	int uv_index0 = poly_combiner->SetVertexUV(vertex_parent_id, vertex_child_id, uv_vec);
 
-	face.indicies[ccw_0] = index0;
+	face.indicies[ccw_0] = pos_index0;
+	face.uv_indicies[ccw_0] = uv_index0;
 
-	vert << opt_vec;
-	vert1 << opt_vec1;
 
-	int index1 = poly_combiner->SetVertexPosition(vertex_parent_id + 1, vertex_child_id, opt_vec1);
+	int pos_index1 = poly_combiner->SetVertexPosition(vertex_parent_id + 1, vertex_child_id, opt_vec1);
+	norm_index1 = poly_combiner->SetVertexNormal(vertex_parent_id + 1, vertex_child_id, normal_def_level_1);
+	int uv_index1 = poly_combiner->SetVertexUV(vertex_parent_id + 1, vertex_child_id++, uv_vec1);
 
-	face.indicies[ccw_1] = index1;
-	index2 = poly_combiner->SetVertexNormal(vertex_parent_id + 1, vertex_child_id++, normal_def_level_1);
-	faces.push_back(face);
+	face.indicies[ccw_1] = pos_index1;
+	face.uv_indicies[ccw_1] = uv_index1;
+
 
 	for (auto i = 1; i < divisions_count_corrected - 1; ++i)
 	{
-		i1 = static_cast<float>(i) / static_cast<float>(divisions_count);
+		i1 = static_cast<float>(i) / static_cast<float>(divisions_count_corrected - 1);
 
 		QVector3D vec = position0->Interpolate(i1);
+		QVector3D uv0 = range_uv0->Interpolate(i1);
 
 		vertex_type vert01;
 
 		vert01 << vec;
 
+		QVector3D pos1 = position1->Interpolate(i1);
+		QVector3D uv1 = range_uv1->Interpolate(i1);
+
 		int index0 = poly_combiner->SetVertexPosition(vertex_parent_id, vertex_child_id, vec);
+		int index1 = poly_combiner->SetVertexPosition(vertex_parent_id + 1, vertex_child_id, pos1);
+
 		poly_combiner->SetVertexNormal(vertex_parent_id, vertex_child_id, normal_def_level_1);
+		poly_combiner->SetVertexNormal(vertex_parent_id + 1, vertex_child_id, normal_def_level_1);
 
-		faces[faces.size() - 1].indicies[ccw_2] = index0;
+		int uv_index0 = poly_combiner->SetVertexUV(vertex_parent_id, vertex_child_id, uv0);
+		int uv_index1 = poly_combiner->SetVertexUV(vertex_parent_id + 1, vertex_child_id++, uv1);
 
-		QVector3D vecb = position1->Interpolate(i1);
+		if (!faces.empty())
+		{
+			face = faces.at(faces.size() - 1);
+		}
+		face.indicies[ccw_2] = index0;
+		face.indicies[ccw_3] = index1;
 
-		int index1 = poly_combiner->SetVertexPosition(vertex_parent_id + 1, vertex_child_id, vecb);
-		poly_combiner->SetVertexNormal(vertex_parent_id + 1, vertex_child_id++, normal_def_level_1);
+		face.uv_indicies[ccw_2] = uv_index0;
+		face.uv_indicies[ccw_3] = uv_index1;
 
 		vertex_type vert02;
-		vert02 << vecb;
+		vert02 << pos1;
 
-		faces[faces.size() - 1].indicies[ccw_3] = index1;
+		faces.push_back(face);
 
-		poly_combiner->AddFace(faces.at(faces.size() - 1));
-
-		int prev1 = id++;
+		poly_combiner->AddFace(face);
 
 		//--
 		Face4<pad_int> face2;
@@ -202,6 +218,8 @@ void Patch_Divide_Parallel<PolyCombiner>::Create(pad_int divisions_count)
 
 		face2.indicies[ccw_0] = index0;
 		face2.indicies[ccw_1] = index1;
+		face2.uv_indicies[ccw_0] = uv_index0;
+		face2.uv_indicies[ccw_1] = uv_index1;
 
 		faces.push_back(face2);
 	}
@@ -210,27 +228,26 @@ void Patch_Divide_Parallel<PolyCombiner>::Create(pad_int divisions_count)
 
 	i1 = static_cast<float>(divisions_count_corrected - 1) / static_cast<float>(divisions_count);
 
-	QVector3D vec = position0->Interpolate(i1);
+	QVector3D pos1 = position0->Interpolate(i1);
+	QVector3D uv1 = range_uv0->Interpolate(i1);
+	QVector3D pos2 = position1->Interpolate(i1);
+	QVector3D uv2 = range_uv1->Interpolate(i1);
 
 	vertex_type vert01;
 
-	index0 = poly_combiner->SetVertexPosition(vertex_parent_id, vertex_child_id, vec);
+	pos_index0 = poly_combiner->SetVertexPosition(vertex_parent_id, vertex_child_id, pos1);
+	pos_index1 = poly_combiner->SetVertexPosition(vertex_parent_id + 1, vertex_child_id, pos2);
 
-	vert01 << vec;
-	face2.indicies[ccw_2] = index0;
+	norm_index1 = poly_combiner->SetVertexNormal(vertex_parent_id, vertex_child_id, normal_def_level_1);
+	norm_index1 = poly_combiner->SetVertexNormal(vertex_parent_id + 1, vertex_child_id, normal_def_level_1);
 
+	uv_index0 = poly_combiner->SetVertexUV(vertex_parent_id, vertex_child_id, uv1);
+	uv_index1 = poly_combiner->SetVertexUV(vertex_parent_id + 1, vertex_child_id++, uv2);
 
-	QVector3D vecb = position1->Interpolate(i1);
-
-	index1 = poly_combiner->SetVertexPosition(vertex_parent_id + 1, vertex_child_id, vecb);
-
-	index2 = poly_combiner->SetVertexNormal(vertex_parent_id, vertex_child_id, normal_def_level_1);
-	index2 = poly_combiner->SetVertexNormal(vertex_parent_id + 1, vertex_child_id, normal_def_level_1);
-
-	vertex_type vert02;
-	vert02 << vecb;
-
-	face2.indicies[ccw_3] = index1;
+	face2.indicies[ccw_2] = pos_index0;
+	face2.indicies[ccw_3] = pos_index1;
+	face2.uv_indicies[ccw_2] = uv_index0;
+	face2.uv_indicies[ccw_3] = uv_index1;
 
 	poly_combiner->AddFace(face2);
 }

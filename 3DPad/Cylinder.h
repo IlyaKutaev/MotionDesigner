@@ -11,6 +11,7 @@ class Cylinder : public QObject
 public:
 	std::vector<Vertex<pad_int>> vertices;
 	std::vector<Face4<pad_int>> faces;
+	std::vector<UVVertex> uv_vertices;
 
 	pad_int div_count = 0;
 	pad_int div_height = 2;

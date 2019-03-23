@@ -37,6 +37,7 @@ pad_int MeshGeometryManager::Create_Indexed_Vertex_For_2D_Surface(pad_int parent
 	{
 		patch_parent_id = 0;
 	}
+
 	const auto index = (patch_parent_id + 1) * CommonDivisions::div_primitive_maximum + child_id;
 
 	auto iter = map_vertices.find(index);
@@ -47,21 +48,50 @@ pad_int MeshGeometryManager::Create_Indexed_Vertex_For_2D_Surface(pad_int parent
 		vertex.vertex_id = free_index++;
 		map_vertices.insert(std::make_pair(index, vertex));
 		used_indicies.push_back(index);
+
+		vertex_iter = map_vertices.find(index);
+
 		return vertex.vertex_id;
 	}
 
+	vertex_iter = iter;
+
 	auto vertex = iter->second;
+
 	return vertex.vertex_id;
+}
+
+pad_int MeshGeometryManager::Create_UV_Vertex_For_2D_Surface(pad_int parent_id, pad_int child_id)
+{
+	const auto index = (uv_parent_id + 1) * CommonDivisions::div_primitive_maximum + child_id;
+
+	auto iter = map_uv_vertices.find(index);
+
+	if (iter == map_uv_vertices.end())
+	{
+		UVVertex vertex;
+		vertex.id = free_uv_index++;
+		map_uv_vertices.insert(std::make_pair(index, vertex));
+		used_uv_indices.push_back(index);
+
+		uv_iter = map_uv_vertices.find(index);
+
+		return vertex.id;
+	}
+
+	uv_iter = iter;
+
+	auto vertex = iter->second;
+
+	return vertex.id;
 }
 
 int MeshGeometryManager::SetVertexPosition(pad_int parent_id, pad_int child_id, QVector3D position)
 {
 	patch_parent_id = parent_id;
 	int index = Create_Indexed_Vertex_For_2D_Surface(patch_parent_id, child_id);
-	auto iter = map_vertices.find((patch_parent_id  + 1)* CommonDivisions::div_primitive_maximum + child_id);
-	if (iter == map_vertices.end()) return -1;
 
-	iter->second.setPosition(position);
+	vertex_iter->second.setPosition(position);
 
 	return index;
 }
@@ -70,26 +100,20 @@ int MeshGeometryManager::SetVertexNormal(pad_int parent_id, pad_int child_id, QV
 {
 	patch_parent_id = parent_id;
 	int index = Create_Indexed_Vertex_For_2D_Surface(patch_parent_id, child_id);
-	auto iter = map_vertices.find((patch_parent_id + 1)* CommonDivisions::div_primitive_maximum + child_id);
-	if (iter == map_vertices.end()) return -1;
 
-	auto normalold = iter->second.GetNormal();
-
-	auto norm = (normalold + normal).normalized();
-	iter->second.SetNormal(norm);
+	vertex_iter->second.SetNormal(normal);
 
 	return index;
 }
 
 int MeshGeometryManager::SetVertexUV(pad_int parent_id, pad_int child_id, QVector3D uv)
 {
-	patch_parent_id = parent_id;
-	int index = Create_Indexed_Vertex_For_2D_Surface(patch_parent_id, child_id);
-	auto iter = map_vertices.find((patch_parent_id + 1)* CommonDivisions::div_primitive_maximum + child_id);
-	if (iter == map_vertices.end()) return -1;
+	uv_parent_id = parent_id;
+	int index = Create_UV_Vertex_For_2D_Surface(uv_parent_id, child_id);
 
-	iter->second.SetUV(uv);
+	uv_iter->second.SetUV(uv);
 
+	
 	return index;
 }
 
@@ -119,6 +143,23 @@ void MeshGeometryManager::AddFace(Face4<pad_int> face)
 std::vector<Face4<pad_int>> MeshGeometryManager::GetFaces()
 {
 	return faces;
+}
+
+std::vector<UVVertex> MeshGeometryManager::GetUVVertices()
+{
+	if (!uv_vertices.empty()) return uv_vertices;
+
+	for (auto &index : used_uv_indices)
+	{
+		UVVertex vertex;
+		auto iter = map_uv_vertices.find(index);
+
+		vertex.id = iter->second.id;
+		vertex.SetUV(iter->second.GetUV());
+		uv_vertices.push_back(vertex);
+	}
+
+	return uv_vertices;
 }
 
 void MeshGeometryManager::SetSurfaceRange(int arg_range)

@@ -12,6 +12,7 @@ public:
 	std::vector<QVector3D>	vertices;
 	std::vector<Face4<pad_int>> faces;
 	std::vector<QVector3D> normals;
+	std::vector<QVector3D> uv_vertices;
 private:
 	bool error = false;
 	size_t size = 0;

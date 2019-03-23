@@ -386,6 +386,26 @@ struct Vertex
 		return QVector3D(uv_set_0.x(), uv_set_0.y(), uv_set_0.z());
 	}
 };
+
+struct UVVertex
+{
+	size_t id = 0;
+	size_t vertex_id = 0;
+	float u = 0, v = 0, z = 0;
+	explicit UVVertex() {};
+	explicit UVVertex(float uu, float vv, float zz) :
+		u(uu), v(vv), z(zz) {}
+	void SetUV(QVector3D arg_uv)
+	{
+		u = arg_uv.x();
+		v = arg_uv.y();
+		z = 0;
+	};
+	QVector3D GetUV()
+	{
+		return QVector3D(u, v, z);
+	}
+};
 //////////////////////////////////////////////////////////////////////////
 template <typename FaceIntType>
 struct Face16
@@ -430,6 +450,7 @@ public:
 	typedef FaceIntType ft;
 	ft face_id = 0;
 	std::array<ft, 4> indicies;
+	std::array<ft, 4> uv_indicies;
 	FLOAT_SMALL normal_x = 0;
 	FLOAT_SMALL normal_y = 0;
 	FLOAT_SMALL normal_z = 0;

@@ -2,45 +2,23 @@
 
 // PVS-Studio Static Code Analyzer for C, C++, C#, and Java: http://www.viva64.com
 
-#include "stdafx.h"
-#include "Export.h"
-# include <cstdlib>
-# include <iostream>
-# include <fstream>
-# include <iomanip>
-# include <cmath>
-# include <ctime>
-# include <cstring>
-# include <Cylinder.h>
-#include <FreeMemory.h>
-#include <OpSmooth.h>
-#include <Wavefront.h>
-#include <MeshPtr.h>
-#include <CheckDisk.h>
+#include <QObject>
+#include <qglobal.h>
+#include <Pad_Numeric.h>
+#include <VertexType.h>
 
-using namespace std;
+class Cylinder;
+class MeshPtr;
 
-Export::Export(QObject *parent)
-	: QObject(parent)
+class Export : public QObject
 {
-}
-
-Export::~Export()
-{
-}
-
-void Export::ExportObject(MeshPtr *mesh, QString filename)
-{
-	Wavefront *wavefront = new Wavefront(this);
-
-	wavefront->Export(filename, mesh);
-
-	wavefront->deleteLater();
-}
-
-void Export::Test()
-{
-#ifndef _DEBUG 
-	return;
-#endif
-	cylinder = new Cyli
+	Q_OBJECT
+private:
+	Cylinder *cylinder = nullptr;
+public:
+	Export(QObject *parent);
+	~Export();
+public:
+	void ExportObject(MeshPtr *mesh, QString filename);
+	void Test();
+};

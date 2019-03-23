@@ -379,6 +379,33 @@
     <ClCompile Include="CheckDisk.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Dirt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Eye.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Boot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Rust.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Barcode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PaperLabel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Pavement.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Bricks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Stripes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Resource Files">
@@ -821,6 +848,33 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="CheckDisk.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Dirt.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Eye.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Boot.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Rust.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Barcode.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="PaperLabel.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Pavement.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Bricks.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Stripes.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

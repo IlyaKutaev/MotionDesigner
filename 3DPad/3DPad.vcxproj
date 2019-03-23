@@ -126,10 +126,13 @@
     <ClCompile Include="Archive.cpp" />
     <ClCompile Include="Area.cpp" />
     <ClCompile Include="AutoBack.cpp" />
+    <ClCompile Include="Barcode.cpp" />
     <ClCompile Include="Barycentric.cpp" />
     <ClCompile Include="Blinn.cpp" />
     <ClCompile Include="Blur.cpp" />
+    <ClCompile Include="Boot.cpp" />
     <ClCompile Include="Box.cpp" />
+    <ClCompile Include="Bricks.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Checker.cpp" />
     <ClCompile Include="ClearSelection.cpp" />
@@ -140,12 +143,14 @@
     <ClCompile Include="Cylinder.cpp" />
     <ClCompile Include="Delete.cpp" />
     <ClCompile Include="DirectLight.cpp" />
+    <ClCompile Include="Dirt.cpp" />
     <ClCompile Include="Displace.cpp" />
     <ClCompile Include="DisplayLayer.cpp" />
     <ClCompile Include="Distance.cpp" />
     <ClCompile Include="EdgeHardness.cpp" />
     <ClCompile Include="Equation.cpp" />
     <ClCompile Include="Exposure.cpp" />
+    <ClCompile Include="Eye.cpp" />
     <ClCompile Include="FBX.cpp" />
     <ClCompile Include="FishEye.cpp" />
     <ClCompile Include="FreeMemory.cpp" />
@@ -186,7 +191,9 @@
     <ClCompile Include="CheckDisk.cpp" />
     <ClCompile Include="OpSmooth.cpp" />
     <ClCompile Include="OpSpin.cpp" />
+    <ClCompile Include="PaperLabel.cpp" />
     <ClCompile Include="Patch_Divide_Parallel.cpp" />
+    <ClCompile Include="Pavement.cpp" />
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="PointLight.cpp" />
     <ClCompile Include="MainForm.cpp" />
@@ -210,6 +217,7 @@
     <ClCompile Include="Renamer.cpp" />
     <ClCompile Include="ResetTransform.cpp" />
     <ClCompile Include="RotationGizmo.cpp" />
+    <ClCompile Include="Rust.cpp" />
     <ClCompile Include="ScaleGizmo.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
@@ -227,6 +235,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Stripes.cpp" />
     <ClCompile Include="Symmetry.cpp" />
     <ClCompile Include="Table.cpp" />
     <ClCompile Include="TableSave.cpp" />
@@ -445,7 +454,27 @@
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
     </QtMoc>
+    <QtMoc Include="Dirt.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Boot.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Barcode.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Bricks.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+    </QtMoc>
     <ClInclude Include="Equation.h" />
+    <QtMoc Include="Eye.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+    </QtMoc>
     <ClInclude Include="FreeMemory.h" />
     <ClInclude Include="IPolyCombiner.h" />
     <ClInclude Include="MeshChannel.h">
@@ -699,13 +728,29 @@
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
     </QtMoc>
     <ClInclude Include="Pad_Numeric.h" />
+    <QtMoc Include="PaperLabel.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+    </QtMoc>
     <ClInclude Include="Patch_Divide_Parallel.h">
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
     </ClInclude>
+    <QtMoc Include="Pavement.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+    </QtMoc>
     <ClInclude Include="PolyCombiner_Patch.h" />
     <ClInclude Include="Range.h" />
     <QtMoc Include="Range3D.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Rust.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
+    </QtMoc>
+    <QtMoc Include="Stripes.h">
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;D:\Qt\Qt5.12.0\5.12.0\msvc2017_64\include\QtCore;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
       <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;A:\3DPad\math\GeometricTools\GTEngine\Include</IncludePath>
     </QtMoc>

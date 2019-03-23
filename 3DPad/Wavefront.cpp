@@ -40,6 +40,13 @@ void Wavefront::Export(QString filename, MeshPtr *mesh)
 		(*stream) << "\n";
 	}
 
+	for (auto &point : mesh->uv_vertices)
+	{
+		(*stream) << "vt ";
+		(*stream) << text2(point);
+		(*stream) << "\n";
+	}
+
 	for (auto &normal : mesh->normals)
 	{
 		(*stream) << "vn ";
@@ -47,17 +54,21 @@ void Wavefront::Export(QString filename, MeshPtr *mesh)
 		(*stream) << "\n";
 	}
 
+	int counter = 0;
 	for (auto &face : mesh->faces)
 	{
 		(*stream) << "f ";
 		for (auto i = 0; i < 4; i++)
 		{
-			(*stream) << QString::number(face.indicies[i]);
-			(*stream) << "//";
-			(*stream) << QString::number(face.indicies[i]);
+			(*stream) << QString::number(face.indicies[i] + 1);
+			(*stream) << "/";
+			(*stream) << QString::number(face.uv_indicies[i] + 1);
+			(*stream) << "/";
+			(*stream) << QString::number(face.indicies[i] + 1);
 			(*stream) << QString(" ");
 		}
 		(*stream) << "\n";
+		counter++;
 	}
 
 	(*stream) << "\n";
@@ -68,7 +79,27 @@ void Wavefront::Export(QString filename, MeshPtr *mesh)
 QString Wavefront::text(QVector3D vector)
 {
 	QString delimiter = " ";
-	QString out = QString::number(vector.x()) + delimiter + QString::number(vector.y()) + delimiter + QString::number(vector.z());
+	QVector3D vec = vector;
+
+	if (std::abs(vec.x()) < 0.00001f) vec.setX(0);
+	if (std::abs(vec.y()) < 0.00001f) vec.setY(0);
+	if (std::abs(vec.z()) < 0.00001f) vec.setZ(0);
+
+	QString out = QString::number(vec.x()) + delimiter + QString::number(vec.y()) + delimiter + QString::number(vec.z());
+
+	return out;
+}
+
+QString Wavefront::text2(QVector3D vector)
+{
+	QString delimiter = " ";
+
+	QVector3D vec = vector;
+	if (std::abs(vec.x()) < 0.00001f) vec.setX(0);
+	if (std::abs(vec.y()) < 0.00001f) vec.setY(0);
+	if (std::abs(vec.z()) < 0.00001f) vec.setZ(0);
+
+	QString out = QString::number(vec.x()) + delimiter + QString::number(vec.y());
 
 	return out;
 }

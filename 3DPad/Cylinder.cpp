@@ -19,10 +19,10 @@ Cylinder::~Cylinder()
 
 void Cylinder::SetRecommendedParameters()
 {
-	div_count = 8;
-	div_height = 5;
-	radius = 25;
-	height = 100;
+	div_count = 16;
+	div_height = 6;
+	radius = 200;
+	height = 2200;
 	radius_vector = QVector3D(0, 0, 200);
 }
 
@@ -44,14 +44,44 @@ void Cylinder::Create()
 
 	geometry_manager->SetSurfaceRange(div_count);
 
+	Range<FLOAT_SMALL, pad_int> rangeuv0;
+
+	rangeuv0.LowerLimit = 0;
+	rangeuv0.UpperLimit = 1;
+
+	float circumference = 2 * 3.1415926f * radius;
+	float aspect = height / circumference;
+
+	float theight = aspect;
+	float twidth = 1;
+
+	float offset = 0;
+	if (aspect > 1)
+	{
+		theight = 1;
+		twidth = 1 / aspect;
+		offset = (1 - (rangeuv0.Interpolate(1) * twidth) / 2) - 0.5f;
+	}
+
 	for (auto i = 0; i < div_count; i++)
 	{
+		FLOAT_SMALL t = static_cast<float>(i) / static_cast<float>(div_count);
+		FLOAT_SMALL t1 = static_cast<float>(i + 1) / static_cast<float>(div_count);
+
 		Patch_Divide_Parallel<PolyCombiner_Patch> *patch(new Patch_Divide_Parallel<PolyCombiner_Patch>());
 
 		patch->SetPolyCombiner(poly_combiner);
 		patch->SetSurfaceCoordinates(i);
 
+
 		patch->SetBoundPoints(spin0->GetPoint(i), spin0->GetPoint(i + 1), spin1->GetPoint(i), spin1->GetPoint(i + 1));
+
+		auto uv0 = QVector3D(rangeuv0.Interpolate(t ) * twidth + offset, 0, 0);
+		auto uv1 = QVector3D(rangeuv0.Interpolate(t1) * twidth + offset, 0, 0);
+		auto uv2 = QVector3D(rangeuv0.Interpolate(t ) * twidth + offset, theight, 0);
+		auto uv3 = QVector3D(rangeuv0.Interpolate(t1) * twidth + offset, theight, 0);
+
+		patch->Set_UV_BoundPoints(uv0, uv1, uv2, uv3);
 
 		patch->Create(div_height);
 
@@ -60,4 +90,5 @@ void Cylinder::Create()
 
 	vertices = geometry_manager->GetVertices();
 	faces = geometry_manager->GetFaces();
+	uv_vertices = geometry_manager->GetUVVertices();
 }
